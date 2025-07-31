@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You! | Awan Eka Putra</title>
+    
+    <!-- Google Fonts: Poppins for headings, Inter for body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #121212;
+            --surface-dark: #1e1e1e;
+            --primary-dark: #bb86fc;
+            --secondary-dark: #03dac6;
+            --on-bg-dark: #ffffff;
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --transition-speed: 0.4s;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--on-bg-dark);
+            font-family: var(--font-body), sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            padding: 20px;
+            cursor: none;
+        }
+
+        .container {
+            max-width: 600px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-family: var(--font-heading), sans-serif;
+            color: var(--on-bg-dark);
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: var(--on-bg-dark);
+            line-height: 1.7;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 24px;
+            background-color: transparent;
+            border: 2px solid var(--secondary-dark);
+            color: var(--secondary-dark);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all var(--transition-speed);
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-dark);
+            color: var(--bg-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(3, 218, 198, 0.2);
+        }
+
+        #custom-cursor {
+            width: 10px;
+            height: 10px;
+            background-color: var(--secondary-dark);
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9999;
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+
+        #custom-cursor.hover {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(3, 218, 198, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            #custom-cursor { display: none; }
+            body { cursor: auto; }
+        }
+    </style>
+</head>
+<body>
+    <div id="custom-cursor"></div>
+
+    <div class="container">
+        <h1>Thank You!</h1>
+        <p>Your message has been successfully sent. I will reply to the email you provided as soon as possible.</p>
+        <a href="https://awanekaputra.netlify.app/" class="btn magnetic">Let's Explore More About Myself</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cursor = document.getElementById('custom-cursor');
+            if (cursor) {
+                const magneticElements = document.querySelectorAll('.magnetic');
+
+                document.addEventListener('mousemove', e => {
+                    cursor.style.left = e.clientX + 'px';
+                    cursor.style.top = e.clientY + 'px';
+                });
+
+                magneticElements.forEach(el => {
+                    el.addEventListener('mouseenter', function() {
+                        cursor.classList.add('hover');
+                    });
+                    el.addEventListener('mouseleave', function() {
+                        cursor.classList.remove('hover');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
