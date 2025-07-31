@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awan Eka Putra | Chemical Engineer & Innovator</title>
+    
+    <!-- Google Fonts: Poppins for headings, Inter for body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons for modern, clean icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        :root {
+            --bg-dark: #121212;
+            --surface-dark: #1e1e1e;
+            --primary-dark: #bb86fc;
+            --secondary-dark: #03dac6;
+            --on-bg-dark: #ffffff;
+            --on-surface-dark: #e0e0e0;
+
+            --bg-light: #f5f5f5;
+            --surface-light: #ffffff;
+            --primary-light: #6200ee;
+            --secondary-light: #03dac6;
+            --on-bg-light: #000000;
+            --on-surface-light: #333333;
+
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --transition-speed: 0.4s;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--on-bg-dark);
+            font-family: var(--font-body);
+            margin: 0;
+            line-height: 1.7;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            scroll-behavior: smooth;
+            cursor: none; /* Hide default cursor */
+        }
+
+        body.light-mode {
+            --bg-dark: var(--bg-light);
+            --surface-dark: var(--surface-light);
+            --primary-dark: var(--primary-light);
+            --secondary-dark: var(--secondary-light);
+            --on-bg-dark: var(--on-bg-light);
+            --on-surface-dark: var(--on-surface-light);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 0;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            color: var(--on-bg-dark);
+            margin-top: 0;
+        }
+
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.5rem; border-left: 5px solid var(--primary-dark); padding-left: 15px; margin-bottom: 40px; }
+        h3 { font-size: 1.5rem; color: var(--primary-dark); }
+        p { color: var(--on-surface-dark); font-size: 1.1rem; max-width: 700px; }
+        a { color: var(--secondary-dark); text-decoration: none; transition: color var(--transition-speed); }
+        a:hover { color: var(--primary-dark); }
+
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            background-color: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: background-color var(--transition-speed);
+        }
+        
+        body.light-mode .main-header { background-color: rgba(245, 245, 245, 0.8); }
+
+        .nav-container { width: 90%; max-width: 1100px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: var(--on-bg-dark); }
+        .main-nav ul { margin: 0; padding: 0; list-style: none; display: flex; align-items: center; }
+        .main-nav li { margin: 0 15px; }
+        .main-nav a { color: var(--on-surface-dark); font-weight: 500; font-size: 1rem; padding: 5px 0; position: relative; }
+        .main-nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--secondary-dark); transition: width var(--transition-speed) ease-out; }
+        .main-nav a:hover::after { width: 100%; }
+        .theme-switcher { background: none; border: none; color: var(--on-surface-dark); cursor: pointer; padding: 5px; }
+        .theme-switcher .feather { width: 24px; height: 24px; }
+        .hamburger { display: none; cursor: pointer; }
+
+        #hero { min-height: 100vh; display: flex; align-items: center; }
+        .hero-container { display: flex; align-items: center; gap: 60px; width: 100%; }
+        .hero-text { flex: 1.5; }
+        .hero-image { flex: 1; max-width: 320px; position: relative; }
+        .hero-image img { width: 100%; border-radius: 50%; object-fit: cover; aspect-ratio: 1 / 1; border: 4px solid var(--surface-dark); box-shadow: 0 0 40px rgba(187, 134, 252, 0.2); }
+        #hero h1 { margin-bottom: 10px; }
+        #hero .tagline { font-family: var(--font-heading); font-size: 1.2rem; color: var(--primary-dark); margin-bottom: 20px; line-height: 1.4; min-height: 50px; display: inline-block; }
+        .typing-cursor { border-right: 2px solid var(--primary-dark); animation: blink 0.7s steps(1) infinite; }
+        @keyframes blink { 50% { border-color: transparent; } }
+        #hero p { font-size: 1.1rem; max-width: 650px; margin-bottom: 30px; }
+        .hero-buttons .btn { margin-right: 15px; margin-bottom: 10px; }
+        .btn { padding: 12px 24px; border-radius: 8px; font-weight: 500; font-size: 1rem; transition: all var(--transition-speed); display: inline-block; }
+        .btn-primary { background-color: var(--primary-dark); color: var(--bg-dark); }
+        body.light-mode .btn-primary { color: var(--bg-light); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 4px 15px rgba(187, 134, 252, 0.3); color: var(--bg-dark); }
+        body.light-mode .btn-primary:hover { color: var(--bg-light); }
+        .btn-secondary { background-color: transparent; border: 2px solid var(--secondary-dark); color: var(--secondary-dark); }
+        .btn-secondary:hover { background-color: var(--secondary-dark); color: var(--bg-dark); }
+        body.light-mode .btn-secondary:hover { color: var(--bg-light); }
+
+        .section { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .section.is-visible { opacity: 1; transform: translateY(0); }
+        
+        #about p { max-width: 850px; }
+
+        .value-prop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .value-card { background-color: var(--surface-dark); padding: 30px; border-radius: 12px; text-align: center; position: relative; overflow: hidden; border: 2px solid transparent; transition: border-color var(--transition-speed), transform var(--transition-speed); }
+        .value-card::before { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(120deg, transparent, rgba(3, 218, 198, 0.2), transparent); transition: left 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
+        .value-card:hover { transform: translateY(-5px); border-color: var(--secondary-dark); }
+        .value-card:hover::before { left: 150%; }
+        .value-card .feather { color: var(--secondary-dark); width: 48px; height: 48px; margin-bottom: 20px; }
+        .value-card h3 { font-size: 1.2rem; color: var(--on-bg-dark); margin-bottom: 10px; }
+        .value-card p { font-size: 1rem; }
+
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .skill-card { background-color: var(--surface-dark); padding: 30px; border-radius: 12px; transition: transform var(--transition-speed), box-shadow var(--transition-speed); }
+        .skill-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+        .skill-card h3 { margin-bottom: 15px; display: flex; align-items: center; }
+        .skill-card .feather { margin-right: 10px; color: var(--secondary-dark); }
+        .skill-card ul { padding-left: 20px; margin: 0; color: var(--on-surface-dark); }
+        .skill-card li { margin-bottom: 10px; }
+
+        .experience-tabs { display: flex; flex-wrap: wrap; margin-bottom: 40px; border-bottom: 1px solid var(--surface-dark); }
+        .tab-button { background: none; border: none; font-family: var(--font-heading); font-size: 1.2rem; padding: 15px 25px; cursor: pointer; color: var(--on-surface-dark); position: relative; transition: color var(--transition-speed); }
+        .tab-button.active { color: var(--primary-dark); }
+        .tab-button.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 3px; background-color: var(--primary-dark); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        
+        .timeline { position: relative; padding-left: 50px; }
+        .timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background-color: var(--surface-dark); }
+        .timeline-item { position: relative; margin-bottom: 40px; }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-item::before { content: ''; position: absolute; left: -45px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background-color: var(--secondary-dark); border: 2px solid var(--bg-dark); }
+
+        .timeline-card { background-color: var(--surface-dark); padding: 25px; border-radius: 12px; display: flex; gap: 30px; align-items: flex-start; }
+        .timeline-content { flex: 1.5; }
+        .timeline-card h3 { margin-top: 0; margin-bottom: 5px; }
+        .timeline-meta { font-size: 0.9rem; color: var(--on-surface-dark); opacity: 0.8; margin-bottom: 15px; }
+        .timeline-meta span { margin-right: 15px; }
+        .timeline-details { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out; }
+        .timeline-details.expanded { max-height: 1000px; }
+        .timeline-details ul { padding-left: 20px; line-height: 1.8; }
+        .timeline-details li { margin-bottom: 10px; }
+        .read-more-btn { background: none; border: none; color: var(--secondary-dark); cursor: pointer; font-weight: 500; padding: 5px 0; margin-top: 10px; }
+
+        .timeline-gallery { flex: 1; max-width: 300px; aspect-ratio: 1 / 1; position: relative; overflow: hidden; border-radius: 12px; border: 2px solid var(--primary-dark); background-color: #333; }
+        .slider-wrapper { display: flex; height: 100%; transition: transform var(--transition-speed) ease-in-out; }
+        .slide { min-width: 100%; height: 100%; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; }
+        .slider-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(18, 18, 18, 0.5); color: white; border: none; cursor: pointer; padding: 8px; border-radius: 50%; opacity: 0; transition: opacity var(--transition-speed); }
+        .timeline-gallery:hover .slider-nav { opacity: 1; }
+        .slider-prev { left: 10px; }
+        .slider-next { right: 10px; }
+
+        .strategic-cta { padding: 30px; background-color: var(--surface-dark); border-radius: 12px; text-align: center; border-left: 4px solid var(--secondary-dark); }
+        .strategic-cta h3 { color: var(--on-bg-dark); }
+        .strategic-cta p { margin: 10px auto 20px; }
+
+        .grid-layout { display: grid; grid-template-columns: 1fr; gap: 40px; }
+        @media (min-width: 992px) { .grid-layout { grid-template-columns: 1fr 1fr; } }
+        .grid-item { background-color: var(--surface-dark); padding: 30px; border-radius: 12px; }
+        .grid-item h2 { font-size: 2rem; border: none; padding-left: 0; }
+        .edu-item, .ach-item { margin-bottom: 25px; }
+        .edu-item:last-child, .ach-item:last-child { margin-bottom: 0; }
+        .item-title { font-weight: 700; color: var(--on-bg-dark); font-size: 1.1rem; }
+        .item-meta { font-size: 0.9rem; color: var(--on-surface-dark); opacity: 0.8; margin-bottom: 5px; }
+        .item-description { font-size: 1rem; color: var(--on-surface-dark); }
+        .ach-item .feather { color: var(--secondary-dark); vertical-align: middle; margin-right: 8px; }
+
+        #contact p { margin-bottom: 30px; }
+        .contact-form { display: flex; flex-direction: column; gap: 20px; max-width: 700px; }
+        .form-group { display: flex; flex-direction: column; }
+        .contact-form input, .contact-form textarea { background-color: var(--surface-dark); border: 1px solid transparent; border-radius: 8px; padding: 15px; color: var(--on-bg-dark); font-family: var(--font-body); font-size: 1rem; transition: border-color var(--transition-speed); }
+        .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--primary-dark); }
+        .contact-form textarea { resize: vertical; min-height: 150px; }
+        .social-links { margin-top: 40px; }
+        .social-links a { margin-right: 20px; color: var(--on-surface-dark); transition: color var(--transition-speed); }
+        .social-links a:hover { color: var(--primary-dark); }
+        .social-links .feather { width: 28px; height: 28px; }
+
+        .main-footer { text-align: center; padding: 30px; background-color: var(--surface-dark); color: var(--on-surface-dark); font-size: 0.9rem; }
+        
+        #custom-cursor { width: 10px; height: 10px; background-color: var(--secondary-dark); border-radius: 50%; position: fixed; transform: translate(-50%, -50%); pointer-events: none; z-index: 9999; transition: width 0.2s, height 0.2s, background-color 0.2s; }
+        #custom-cursor.hover { width: 40px; height: 40px; background-color: rgba(3, 218, 198, 0.2); }
+
+        @media (max-width: 992px) {
+            .hero-container { flex-direction: column-reverse; text-align: center; gap: 40px; }
+            .hero-text { align-items: center; }
+            #hero p { margin-left: auto; margin-right: auto; }
+            .timeline-card { flex-direction: column; }
+            .timeline-gallery { max-width: 100%; }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .container { padding: 60px 0; }
+            .main-nav { display: none; }
+            .hamburger { display: block; }
+            .main-nav.mobile-active { display: flex; flex-direction: column; position: absolute; top: 60px; right: 5%; background-color: var(--surface-dark); width: 90%; border-radius: 12px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+            .main-nav.mobile-active ul { flex-direction: column; width: 100%; }
+            .main-nav.mobile-active li { margin: 10px 0; width: 100%; text-align: center; }
+            #hero { padding-top: 120px; padding-bottom: 60px; min-height: auto; }
+            .hero-buttons { display: flex; flex-direction: column; gap: 15px; width: 80%; margin: 0 auto; }
+            #custom-cursor { display: none; }
+            body { cursor: auto; }
+        }
+    </style>
+</head>
+<body>
+    <div id="custom-cursor"></div>
+
+    <header class="main-header">
+        <div class="nav-container">
+            <a href="#hero" class="logo magnetic">Awan Eka Putra</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#about" class="magnetic">About</a></li>
+                    <li><a href="#skills" class="magnetic">Skills</a></li>
+                    <li><a href="#experience" class="magnetic">Experience</a></li>
+                    <li><a href="#contact" class="magnetic">Contact</a></li>
+                    <li>
+                        <button class="theme-switcher magnetic" aria-label="Toggle theme">
+                            <i data-feather="sun" class="sun-icon"></i>
+                            <i data-feather="moon" class="moon-icon" style="display:none;"></i>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+            <button class="hamburger magnetic" aria-label="Open menu">
+                <i data-feather="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="container">
+            <div class="hero-container">
+                <div class="hero-text">
+                    <h1>Awan Eka Putra</h1>
+                    <p class="tagline"><span id="animated-tagline"></span><span class="typing-cursor"></span></p>
+                    <p>
+                        A dynamic chemical engineer bridging the gap between industrial processes, data-driven insights, and impactful education. I specialize in leveraging technology to solve complex challenges and developing leaders to drive future innovation.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#experience" class="btn btn-primary magnetic">View My Work</a>
+                        <a href="#contact" class="btn btn-secondary magnetic">Contact Me</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://github.com/Awan1211/PortfolioNeeds/raw/931678ba04135e9e9fdf3e388c8c67bd95dc6778/mainPicture" alt="Awan Eka Putra professional headshot">
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="container section">
+            <h2>About Me</h2>
+            <p>
+                I am a highly driven Chemical Engineering undergraduate with a strong foundation in industrial processes, renewable energy, and scientific research. My passion lies at the intersection of engineering and social impact, where I leverage data-driven action and human-centered innovation to create meaningful change.
+            </p>
+            <p>
+                Equipped with extensive leadership experience from managing technical teams in laboratory settings to mentoring youth in technopreneurship and community projects, I thrive on communicating complex ideas to diverse audiences. My goal is to apply engineering principles for continuous growth and tangible results.
+            </p>
+        </section>
+
+        <section id="value-prop" class="container section">
+            <h2>What I Bring to the Table</h2>
+            <div class="value-prop-grid">
+                <div class="value-card">
+                    <i data-feather="cpu"></i>
+                    <h3>Deep Analytical Thinking</h3>
+                    <p>I break down complex engineering problems into actionable, data-driven solutions.</p>
+                </div>
+                <div class="value-card">
+                    <i data-feather="users"></i>
+                    <h3>Human-Centered Innovation</h3>
+                    <p>I build solutions with the end-user in mind, from lab processes to community projects.</p>
+                </div>
+                <div class="value-card">
+                    <i data-feather="zap"></i>
+                    <h3>Bridging Theory & Practice</h3>
+                    <p>I don't just understand the science; I apply it in the real world to achieve tangible results.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="container section">
+            <h2>Core Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3><i data-feather="settings"></i>Technical & Scientific</h3>
+                    <ul>
+                        <li><b>Applied Chemical Engineering:</b> Process Management, Purification, Bioenergy.</li>
+                        <li><b>Data Analysis & Simulation:</b> Advanced Excel (3-Star Certified), Scilab, Basic ANSYS Fluent.</li>
+                        <li><b>Technopreneurship:</b> Full-cycle product development from ideation to prototype.</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3><i data-feather="beaker"></i>Research & Laboratory</h3>
+                    <ul>
+                        <li><b>Advanced Research:</b> Lignocellulosic materials, Enzymatic reactions, SEM, FTIR.</li>
+                        <li><b>Industrial Lab Operations:</b> BDC, GAC, LLE, WWAC units.</li>
+                        <li><b>Academic Instruction:</b> Guided 800+ students in Organic Chemistry labs.</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3><i data-feather="users"></i>Leadership & Management</h3>
+                    <ul>
+                        <li><b>Project Leadership:</b> Business analysis, system interviews, and data synthesis.</li>
+                        <li><b>Mentorship & Coaching:</b> Guided 55+ participants in renewable energy.</li>
+                        <li><b>Event Execution:</b> Managed end-to-end operations for hybrid seminars.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="container section">
+            <h2>Professional Journey</h2>
+            <div class="experience-tabs">
+                <button class="tab-button active magnetic" data-tab="professional">Professional</button>
+                <button class="tab-button magnetic" data-tab="leadership">Leadership & Volunteering</button>
+                <button class="tab-button magnetic" data-tab="organizational">Organizational</button>
+            </div>
+
+            <div id="professional" class="tab-content active">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-content">
+                                <h3>Laboratory Assistant</h3>
+                                <div class="timeline-meta"><span>Separation & Purification Laboratory</span> | <span>Indralaya</span></div>
+                                <p class="item-meta">May 2025 - Present</p>
+                                <p>Mentored 100+ students in mastering 4 major industrial-scale unit operations (BDC, GAC, LLE, WWAC).</p>
+                                <button class="read-more-btn magnetic">Read More</button>
+                                <div class="timeline-details">
+                                    <ul>
+                                        <li>Mentored 100+ undergraduate students in mastering fundamental theories and operational techniques of 4 major industrial-scale unit operations.</li>
+                                        <li>Led ~5 lab sessions per week, across 3 shifts and 2 batch groups, ensuring smooth implementation of weekly experimental plans.</li>
+                                        <li>Appointed as Shift Leader, coordinating assistant activities and ensuring safety protocols, time efficiency, and experiment quality.</li>
+                                        <li>Delivered continuous feedback on student performance and monthly lab report presentations.</li>
+                                        <li>Actively contributed to student assessment during monthly seminars, focusing on process understanding and system control.</li>
+                                        <li>Participated in semester-based module rotation, guiding 3-week intensive focus on each unit operation.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="timeline-gallery">
+                                <div class="slider-wrapper">
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/aslabOTK1" alt="Documentation 1"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/aslabOTK2" alt="Documentation 2"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/aslabOTK3" alt="Documentation 3"></div>
+                                </div>
+                                <button class="slider-nav slider-prev magnetic"><i data-feather="chevron-left"></i></button>
+                                <button class="slider-nav slider-next magnetic"><i data-feather="chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                         <div class="timeline-card">
+                            <div class="timeline-content">
+                                <h3>Co-Shift (Lead Assistant)</h3>
+                                <div class="timeline-meta"><span>Organic Chemistry Laboratory</span> | <span>Indralaya</span></div>
+                                <p class="item-meta">Jan - May 2025</p>
+                                <p>Appointed as Shift Leader, managing over 60 students per week and designing a lab performance audit system.</p>
+                                <button class="read-more-btn magnetic">Read More</button>
+                                <div class="timeline-details">
+                                    <ul>
+                                        <li>Appointed as Shift Leader for one of three lab shifts, managing over 60 students per week during 120-minute practical sessions.</li>
+                                        <li>Delivered comprehensive pre-lab briefings and live instructions that successfully transitioned students from zero lab experience to confident execution.</li>
+                                        <li>Conducted 5+ formal safety inductions and ensured 100% compliance with PPE protocols, attendance tracking, and laboratory discipline.</li>
+                                        <li>Designed and enforced a lab performance audit system covering written report accuracy, hands-on execution, tool integrity, and student behavior.</li>
+                                        <li>Administered monthly seminar evaluations, providing personalized verbal and written feedback on students’ scientific reasoning and presentation skills.</li>
+                                        <li>Initiated weekly extra sessions (voluntary), improving students’ theoretical mastery and report quality.</li>
+                                        <li>Supported cross-shift operations with a weekly average of 3 practical sessions, contributing to smoother coordination.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="timeline-gallery">
+                                <div class="slider-wrapper">
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/aslabKimor1" alt="Documentation 1"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/aslabKimor2" alt="Documentation 2"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/aslabKimor3" alt="Documentation 3"></div>
+                                </div>
+                                <button class="slider-nav slider-prev magnetic"><i data-feather="chevron-left"></i></button>
+                                <button class="slider-nav slider-next magnetic"><i data-feather="chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                           <div class="timeline-content">
+                               <h3>Laboratory Assistant</h3>
+                               <div class="timeline-meta"><span>Organic Chemistry Laboratory</span> | <span>Indralaya</span></div>
+                               <p class="item-meta">Jun 2023 - Present</p>
+                               <p>Instructed and supervised 800+ undergraduate students across 4 semesters in core Organic Chemistry experiments.</p>
+                               <button class="read-more-btn magnetic">Read More</button>
+                               <div class="timeline-details">
+                                   <ul>
+                                        <li>Instructed and supervised 800+ students across 4 academic semesters in core experiments (molecular modeling, elemental analysis, recrystallization, distillation, aspirin synthesis).</li>
+                                        <li>Delivered 60+ live experimental demonstrations, emphasizing safety, equipment usage, and chemical handling.</li>
+                                        <li>Organized and led optional online tutorials to deepen theoretical comprehension beyond mandatory lab hours.</li>
+                                        <li>Enforced compulsory handwritten pre-lab reports to improve preparation quality and lab efficiency.</li>
+                                        <li>Evaluated 500+ lab reports for scientific clarity, writing structure, and compliance.</li>
+                                        <li>Collaborated with a team of 5+ assistants per shift to ensure high-quality feedback delivery.</li>
+                                        <li>Promoted a culture of scientific discipline, resulting in increased report punctuality and reduced error rates.</li>
+                                   </ul>
+                               </div>
+                           </div>
+                           <div class="timeline-gallery">
+                               <div class="slider-wrapper">
+                                   <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/aslabKimorRegular1" alt="Documentation 1"></div>
+                                   <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/aslabKimorRegular2" alt="Documentation 2"></div>
+                                   <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/aslabKimorRegular3" alt="Documentation 3"></div>
+                               </div>
+                               <button class="slider-nav slider-prev magnetic"><i data-feather="chevron-left"></i></button>
+                               <button class="slider-nav slider-next magnetic"><i data-feather="chevron-right"></i></button>
+                           </div>
+                       </div>
+                   </div>
+                </div>
+            </div>
+            
+            <div id="leadership" class="tab-content">
+                 <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-content">
+                                <h3>Technopreneurship Mentor</h3>
+                                <div class="timeline-meta"><span>Chemical Engineering Research Club</span> | <span>Indralaya</span></div>
+                                <p class="item-meta">Sep - Nov 2024</p>
+                                <p>Guided a team of 5 students through the full product development cycle, resulting in a functional prototype of a 4-in-1 natural spray.</p>
+                                <button class="read-more-btn magnetic">Read More</button>
+                                <div class="timeline-details">
+                                    <ul>
+                                        <li>Mentored a team of 5 students over a 12-week period with weekly 2-hour sessions.</li>
+                                        <li>Guided participants through the full cycle of product development: ideation, formulation research, business model design, and execution.</li>
+                                        <li>Successfully delivered a functional prototype of a 4-in-1 multifunctional natural spray.</li>
+                                        <li>Facilitated final pitching and project presentation sessions, enhancing participants’ communication and business strategy skills.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="timeline-gallery">
+                                <div class="slider-wrapper">
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/tecnoMentor1" alt="Documentation 1"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/tecnoMentor2" alt="Documentation 2"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/tecnoMentor3" alt="Documentation 3"></div>
+                                </div>
+                                <button class="slider-nav slider-prev magnetic"><i data-feather="chevron-left"></i></button>
+                                <button class="slider-nav slider-next magnetic"><i data-feather="chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-content">
+                                <h3>Mentor at CARTECHAL Project</h3>
+                                <div class="timeline-meta"><span>Chemical Engineering Research Club</span> | <span>Indralaya</span></div>
+                                <p class="item-meta">Sep - Dec 2024</p>
+                                <p>Co-mentored 5 project teams (55+ participants) in a renewable energy initiative, delivering core sessions on energy transition and efficiency.</p>
+                                <button class="read-more-btn magnetic">Read More</button>
+                                <div class="timeline-details">
+                                    <ul>
+                                        <li>Co-mentored 5 project teams consisting of 55+ participants in a department-led initiative on renewable energy.</li>
+                                        <li>Delivered core sessions on renewable energy fundamentals, energy transition urgency, and system efficiency optimization.</li>
+                                        <li>Supervised participants’ ideation for environmentally friendly vehicles powered by pressured gas and voltaic mechanisms.</li>
+                                        <li>Served as the pioneer batch (Gen 1), setting academic foundations for future program generations.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="timeline-gallery">
+                                <div class="slider-wrapper">
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/cartechal1" alt="Documentation 1"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/cartechal2" alt="Documentation 2"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/cartechal3" alt="Documentation 3"></div>
+                                </div>
+                                <button class="slider-nav slider-prev magnetic"><i data-feather="chevron-left"></i></button>
+                                <button class="slider-nav slider-next magnetic"><i data-feather="chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-content">
+                                <h3>Coach</h3>
+                                <div class="timeline-meta"><span>AIESEC Future Leaders</span> | <span>UNSRI</span></div>
+                                <p class="item-meta">Jan 2023 - Jan 2024</p>
+                                <p>Awarded "Most Engaging Coach" and "Best Team" for outstanding mentorship of 16 delegates in a 12-month leadership program.</p>
+                                <button class="read-more-btn magnetic">Read More</button>
+                                <div class="timeline-details">
+                                    <ul>
+                                        <li>Nominated as Most Engaging Coach and awarded Best Team, recognizing outstanding mentorship.</li>
+                                        <li>Facilitated biweekly coaching for 16 delegates on public speaking, communication, critical thinking, and digital marketing.</li>
+                                        <li>Led a simulated digital marketing campaign project, mentoring participants through market analysis and strategic planning.</li>
+                                        <li>Cultivated strong leadership and analytical skills by providing continuous feedback and promoting teamwork.</li>
+                                        <li>Contributed to significant progress in delegates’ competency development and presentation delivery.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="timeline-gallery">
+                                <div class="slider-wrapper">
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/coach1" alt="Documentation 1"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/coach2" alt="Documentation 2"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/coach3" alt="Documentation 3"></div>
+                                </div>
+                                <button class="slider-nav slider-prev magnetic"><i data-feather="chevron-left"></i></button>
+                                <button class="slider-nav slider-next magnetic"><i data-feather="chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-content">
+                                <h3>Dormitory Caretaker</h3>
+                                <div class="timeline-meta"><span>Ponpes Qodratullah Langkan</span> | <span>Banyuasin</span></div>
+                                <p class="item-meta">Jul 2021 - Mar 2022</p>
+                                <p>Supervised and managed the daily activities of 260+ boarding students, ensuring order, safety, and academic discipline.</p>
+                                <button class="read-more-btn magnetic">Read More</button>
+                                <div class="timeline-details">
+                                    <ul>
+                                        <li>Supervised and managed daily activities of 260+ boarding students, ensuring order, cleanliness, safety, and discipline.</li>
+                                        <li>Delivered weekly lessons and mentorship on academic and personal development topics.</li>
+                                        <li>Enforced dormitory rules and facilitated conflict resolution processes, improving student compliance and harmony.</li>
+                                        <li>Initiated structured schedules that reduced lateness and enhanced students’ time management skills.</li>
+                                        <li>Gained advanced skills in public speaking, classroom management, leadership, and emotional intelligence.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="timeline-gallery">
+                                <div class="slider-wrapper">
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/ppq1" alt="Documentation 1"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/ppq2" alt="Documentation 2"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/ppq3" alt="Documentation 3"></div>
+                                </div>
+                                <button class="slider-nav slider-prev magnetic"><i data-feather="chevron-left"></i></button>
+                                <button class="slider-nav slider-next magnetic"><i data-feather="chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-content">
+                                <h3>Volunteer - Water Filtration & Educator</h3>
+                                <div class="timeline-meta"><span>Filternesia by AIESEC</span> | <span>Palembang</span></div>
+                                <p class="item-meta">June – July 2024</p>
+                                <p>Contributed to SDG 6 by installing 3 large-scale water filters and educating 50+ community members on clean water and sanitation.</p>
+                                <button class="read-more-btn magnetic">Read More</button>
+                                <div class="timeline-details">
+                                    <ul>
+                                        <li>Selected as a participant in a 4-week program promoting Clean Water and Sanitation (SDG 6).</li>
+                                        <li>Conducted door-to-door field surveys, interacting with local families and mapping daily water usage practices.</li>
+                                        <li>Delivered interactive education sessions to over 50 community members on waterborne diseases and filter usage.</li>
+                                        <li>Contributed to the physical construction and installation of 3 large-scale water filters.</li>
+                                        <li>Managed overlapping responsibilities during national competitions by applying strong time management.</li>
+                                        <li>Developed adaptive communication and child-friendly facilitation strategies for challenging field settings.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="timeline-gallery">
+                                <div class="slider-wrapper">
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/lp1" alt="Documentation 1"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/lp2" alt="Documentation 2"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/lp3" alt="Documentation 3"></div>
+                                </div>
+                                <button class="slider-nav slider-prev magnetic"><i data-feather="chevron-left"></i></button>
+                                <button class="slider-nav slider-next magnetic"><i data-feather="chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-content">
+                                <h3>Volunteer - Solar PV Installation & Educator</h3>
+                                <div class="timeline-meta"><span>Abdi Energi by SRE UNSRI</span> | <span>Palembang</span></div>
+                                <p class="item-meta">Nov 2024</p>
+                                <p>Served as a "Solar Warrior," installing a 6.6 kWp photovoltaic system at a remote boarding school to bring clean electricity to an underserved community.</p>
+                                <button class="read-more-btn magnetic">Read More</button>
+                                <div class="timeline-details">
+                                    <ul>
+                                        <li>Contributed as a Solar Warrior in a rural electrification initiative, installing 6.6 kWp photovoltaic panels and 5 kWh battery storage.</li>
+                                        <li>Executed hands-on installation over 2 days, collaborating in mounting solar modules, connecting inverters, and integrating battery systems.</li>
+                                        <li>Led interactive educational activities for local children to raise awareness of renewable and sustainable energy.</li>
+                                        <li>Engaged in high-impact infrastructure work that brought access to clean, decentralized electricity.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="timeline-gallery">
+                                <div class="slider-wrapper">
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/abdiEnergi1" alt="Documentation 1"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/abdiEnergi2" alt="Documentation 2"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/abdiEnergi3" alt="Documentation 3"></div>
+                                </div>
+                                <button class="slider-nav slider-prev magnetic"><i data-feather="chevron-left"></i></button>
+                                <button class="slider-nav slider-next magnetic"><i data-feather="chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="organizational" class="tab-content">
+                <div class="timeline">
+                     <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-content">
+                                <h3>Head of Event Division, Education Energy Day</h3>
+                                <div class="timeline-meta"><span>Society of Renewable Energy (SRE) UNSRI</span> | <span>Jan - Apr 2025</span></div>
+                                <p>Led end-to-end execution of a 4-day hybrid event on solar power for 30+ participants, covering webinars, prototyping, and case studies.</p>
+                                <button class="read-more-btn magnetic">Read More</button>
+                                <div class="timeline-details">
+                                    <ul>
+                                        <li>Led the end-to-end event execution across 4 days of activities (webinars, offline prototyping, case study day).</li>
+                                        <li>Designed interactive elements such as quizzes and ice-breakers to maintain engagement in online sessions.</li>
+                                        <li>Supervised a team of committee members; delegated tasks and provided hands-on support.</li>
+                                        <li>Successfully facilitated the hands-on assembly of small-scale solar power modules and final presentations.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="timeline-gallery">
+                                <div class="slider-wrapper">
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/eed1" alt="Documentation 1"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/eed2" alt="Documentation 2"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/eed3" alt="Documentation 3"></div>
+                                </div>
+                                <button class="slider-nav slider-prev magnetic"><i data-feather="chevron-left"></i></button>
+                                <button class="slider-nav slider-next magnetic"><i data-feather="chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-content">
+                                <h3>Head of Renewable Energy Division</h3>
+                                <div class="timeline-meta"><span>Chemical Engineering Research Club</span> | <span>Indralaya</span></div>
+                                <p class="item-meta">Jan - Dec 2024</p>
+                                <p>Led a team of 5 in developing member competence on renewable energy trends and engineering fundamentals.</p>
+                                <button class="read-more-btn magnetic">Read More</button>
+                                <div class="timeline-details">
+                                    <ul>
+                                        <li>Led a team of 5 in developing awareness and deep understanding of Renewable Energy (RE).</li>
+                                        <li>Designed and facilitated capacity-building sessions to enhance members’ scientific thinking and critical insight on RE.</li>
+                                        <li>Initiated and supervised the execution of a division-level seminar on Renewable Energy for 60+ participants.</li>
+                                        <li>Strengthened leadership, mentorship, and technical communication skills through cross-functional collaboration.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="timeline-gallery">
+                                <div class="slider-wrapper">
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/risnovEBT1" alt="Documentation 1"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/risnovEBT2" alt="Documentation 2"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/risnovEBT3" alt="Documentation 3"></div>
+                                </div>
+                                <button class="slider-nav slider-prev magnetic"><i data-feather="chevron-left"></i></button>
+                                <button class="slider-nav slider-next magnetic"><i data-feather="chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-content">
+                                <h3>OC Delegates Service, Youthnificant 6.0</h3>
+                                <div class="timeline-meta"><span>AIESEC in UNSRI</span> | <span>UNSRI</span></div>
+                                <p class="item-meta">Jul - Nov 2023</p>
+                                <p>Served as the main point of contact for 70+ delegates, achieving an outstanding Net Promoter Score (NPS) of 9.485.</p>
+                                <button class="read-more-btn magnetic">Read More</button>
+                                <div class="timeline-details">
+                                    <ul>
+                                        <li>Served as the main point of contact for 70+ delegates, creating a seamless communication system.</li>
+                                        <li>Designed and managed Google Forms for registration and feedback to extract actionable insights.</li>
+                                        <li>Achieved an outstanding Net Promoter Score (NPS) of 9.485, reflecting high delegate satisfaction.</li>
+                                        <li>Automated certificate generation and distribution using Autocrat, improving operational efficiency.</li>
+                                        <li>Analyzed feedback using Excel to provide data-driven input for event evaluation.</li>
+                                        <li>Developed technical and interpersonal skills in stakeholder engagement and data analysis.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="timeline-gallery">
+                                <div class="slider-wrapper">
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/youthni1" alt="Documentation 1"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/youthni2" alt="Documentation 2"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/youthni3" alt="Documentation 3"></div>
+                                </div>
+                                <button class="slider-nav slider-prev magnetic"><i data-feather="chevron-left"></i></button>
+                                <button class="slider-nav slider-next magnetic"><i data-feather="chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-content">
+                                <h3>Intern of Relation Management</h3>
+                                <div class="timeline-meta"><span>AIESEC in UNSRI</span> | <span>UNSRI</span></div>
+                                <p class="item-meta">Nov 2022 - Jan 2023</p>
+                                <p>Awarded Best Intern for outstanding initiative and performance in managing international exchange processes.</p>
+                                <button class="read-more-btn magnetic">Read More</button>
+                                <div class="timeline-details">
+                                    <ul>
+                                        <li>Facilitated international exchange processes by coordinating meetings with global partners.</li>
+                                        <li>Maintained consistent engagement with over 10 International Relations Partners.</li>
+                                        <li>Provided timely feedback and support to partners, contributing to improved service quality.</li>
+                                        <li>Awarded Best Intern AIESEC UNSRI 2022/2023 for outstanding initiative and performance.</li>
+                                        <li>Strengthened competencies in stakeholder management and cross-cultural collaboration.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="timeline-gallery">
+                                <div class="slider-wrapper">
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/rm1" alt="Documentation 1"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/rm2" alt="Documentation 2"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/rm3" alt="Documentation 3"></div>
+                                </div>
+                                <button class="slider-nav slider-prev magnetic"><i data-feather="chevron-left"></i></button>
+                                <button class="slider-nav slider-next magnetic"><i data-feather="chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-content">
+                                <h3>Staff - PPSDM</h3>
+                                <div class="timeline-meta"><span>IMATEK FT UNSRI</span> | <span>Indralaya</span></div>
+                                <p class="item-meta">Feb 2023 - Feb 2024</p>
+                                <p>Took part in organizing major annual programs for Chemical Engineering students, including workshops and development events.</p>
+                                <button class="read-more-btn magnetic">Read More</button>
+                                <div class="timeline-details">
+                                    <ul>
+                                        <li>Took part in organizing major annual programs for Chemical Engineering students.</li>
+                                        <li>Actively collaborated with fellow staff, lecturers, and student bodies to plan and execute impactful activities.</li>
+                                        <li>Played a key role in ensuring smooth logistics and engaging content delivery for participants.</li>
+                                        <li>Gained hands-on experience in teamwork, communication, and event execution in an academic organization.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="timeline-gallery">
+                                <div class="slider-wrapper">
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/ppsdm1" alt="Documentation 1"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/ppsdm2" alt="Documentation 2"></div>
+                                    <div class="slide"><img src="https://github.com/Awan1211/PortfolioNeeds/raw/refs/heads/main/ppsdm3" alt="Documentation 3"></div>
+                                </div>
+                                <button class="slider-nav slider-prev magnetic"><i data-feather="chevron-left"></i></button>
+                                <button class="slider-nav slider-next magnetic"><i data-feather="chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education-achievements" class="container section">
+             <div class="grid-layout">
+                <div class="grid-item">
+                    <h2>Education</h2>
+                    <div class="edu-item">
+                        <p class="item-title">Chemical Engineering (Undergraduate)</p>
+                        <p class="item-meta">Universitas Sriwijaya | Jun 2022 - Present</p>
+                        <p class="item-description">Pursuing a degree with a strong focus on sustainability and renewable energy systems. Completed 125+ credit hours in core engineering coursework, with current GPA: 3.90 / 4.00.</p>
+                    </div>
+                    <div class="edu-item">
+                        <p class="item-title">Certified Microsoft Excel Specialist</p>
+                        <p class="item-meta">MySkill.id | May - Dec 2023</p>
+                        <p class="item-description">Earned Three-Star Certification (highest level) for proficiency in data processing, pivot tables, and visualization.</p>
+                    </div>
+                    <div class="edu-item">
+                        <p class="item-title">Advanced Essay Training</p>
+                        <p class="item-meta">P3MADIKSIKIP | Jun - Aug 2024</p>
+                        <p class="item-description">Acquired advanced scientific writing skills through structured guidance and expert-led discussions.</p>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <h2>Achievements</h2>
+                    <div class="ach-item">
+                        <p class="item-title"><i data-feather="award"></i>1st Place - Paper Competition 2023</p>
+                        <p class="item-description">"Malltron Grid": An innovative piezoelectric & AI-based microgrid for urban malls.</p>
+                    </div>
+                    <div class="ach-item">
+                        <p class="item-title"><i data-feather="award"></i>2nd Place - National Essay Competition 2023</p>
+                        <p class="item-description">"EKOTERA": A carbon tax app concept with air quality sensors for Net Zero 2060.</p>
+                    </div>
+                    <div class="ach-item">
+                        <p class="item-title"><i data-feather="edit-3"></i>20+ Scientific & Popular Writings</p>
+                        <p class="item-description">Authored numerous articles combining engineering theory with accessible, real-world applications.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container section" id="final-cta">
+             <div class="strategic-cta">
+                <h3>Impressed by my work?</h3>
+                <p>Let's connect and discuss how my skills can bring value to your vision.</p>
+                <a href="#contact" class="btn btn-secondary magnetic">Let's Talk</a>
+            </div>
+        </section>
+
+        <section id="contact" class="container section">
+            <h2>Get In Touch</h2>
+            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of an innovative vision. Feel free to reach out.</p>
+            <form class="contact-form" name="contact" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="contact">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required class="magnetic">
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required class="magnetic">
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Your Message" required class="magnetic"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary magnetic">Send Message</button>
+            </form>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/awanekaputra" target="_blank" aria-label="LinkedIn" class="magnetic"><i data-feather="linkedin"></i></a>
+                <a href="mailto:awanekaputra.business@gmail.com" aria-label="Email" class="magnetic"><i data-feather="mail"></i></a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 Awan Eka Putra. Designed & Developed with passion.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
+
+            // Theme Switcher
+            const themeSwitcher = document.querySelector('.theme-switcher');
+            const body = document.body;
+            const sunIcon = document.querySelector('.sun-icon');
+            const moonIcon = document.querySelector('.moon-icon');
+
+            if (localStorage.getItem('theme') === 'light') {
+                body.classList.add('light-mode');
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'inline-block';
+            }
+
+            themeSwitcher.addEventListener('click', () => {
+                body.classList.toggle('light-mode');
+                const isLight = body.classList.contains('light-mode');
+                localStorage.setItem('theme', isLight ? 'light' : 'dark');
+                sunIcon.style.display = isLight ? 'none' : 'inline-block';
+                moonIcon.style.display = isLight ? 'inline-block' : 'none';
+            });
+
+            // Mobile Navigation
+            const hamburger = document.querySelector('.hamburger');
+            const mainNav = document.querySelector('.main-nav');
+            hamburger.addEventListener('click', () => {
+                mainNav.classList.toggle('mobile-active');
+            });
+            
+            document.querySelectorAll('.main-nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if(mainNav.classList.contains('mobile-active')){
+                       mainNav.classList.remove('mobile-active');
+                    }
+                });
+            });
+
+            // Animate Sections on Scroll
+            const sections = document.querySelectorAll('.section');
+            const sectionObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        sectionObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            sections.forEach(section => sectionObserver.observe(section));
+            
+            // Experience Tabs
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    button.classList.add('active');
+                    document.getElementById(button.dataset.tab).classList.add('active');
+                });
+            });
+
+            // Read More Buttons
+            const readMoreButtons = document.querySelectorAll('.read-more-btn');
+            readMoreButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const details = button.nextElementSibling;
+                    details.classList.toggle('expanded');
+                    button.textContent = details.classList.contains('expanded') ? 'Read Less' : 'Read More';
+                });
+            });
+
+            // Gallery Sliders
+            document.querySelectorAll('.timeline-gallery').forEach(gallery => {
+                const wrapper = gallery.querySelector('.slider-wrapper');
+                const prevBtn = gallery.querySelector('.slider-prev');
+                const nextBtn = gallery.querySelector('.slider-next');
+                const slides = gallery.querySelectorAll('.slide');
+                let currentIndex = 0;
+                let autoSlideInterval;
+
+                function updateSlider() {
+                    wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+                }
+
+                function startAutoSlide() {
+                    if (slides.length > 1) {
+                        autoSlideInterval = setInterval(() => {
+                            currentIndex = (currentIndex + 1) % slides.length;
+                            updateSlider();
+                        }, 4000);
+                    }
+                }
+
+                function stopAutoSlide() { clearInterval(autoSlideInterval); }
+
+                nextBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    updateSlider();
+                    stopAutoSlide(); 
+                });
+
+                prevBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                    updateSlider();
+                    stopAutoSlide();
+                });
+                
+                gallery.addEventListener('mouseenter', stopAutoSlide);
+                gallery.addEventListener('mouseleave', startAutoSlide);
+
+                startAutoSlide();
+            });
+
+            // Animated Tagline
+            const taglineSpan = document.getElementById('animated-tagline');
+            const taglineContainer = document.querySelector('#hero .tagline');
+            const typingCursor = document.querySelector('.typing-cursor');
+            const roles = ["Chemical Engineer", "Educator", "Coach", "Mentor", "Writer", "Researcher"];
+            let roleIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typeTimeout;
+
+            function type() {
+                const currentRole = roles[roleIndex];
+                if (isDeleting) {
+                    taglineSpan.textContent = currentRole.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    taglineSpan.textContent = currentRole.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                if (!isDeleting && charIndex === currentRole.length) {
+                    typeTimeout = setTimeout(() => isDeleting = true, 2000);
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    roleIndex = (roleIndex + 1) % roles.length;
+                }
+                
+                const typeSpeed = isDeleting ? 50 : 150;
+                typeTimeout = setTimeout(type, typeSpeed);
+            }
+            
+            taglineContainer.addEventListener('mouseenter', () => {
+                clearTimeout(typeTimeout);
+                taglineSpan.textContent = roles.join(' | ');
+                typingCursor.style.display = 'none';
+            });
+
+            taglineContainer.addEventListener('mouseleave', () => {
+                typingCursor.style.display = 'inline-block';
+                roleIndex = 0;
+                charIndex = 0;
+                isDeleting = false;
+                clearTimeout(typeTimeout);
+                type();
+            });
+
+            type();
+
+            // Custom Cursor & Magnetic Effect
+            const cursor = document.getElementById('custom-cursor');
+            if (cursor) {
+                const magneticElements = document.querySelectorAll('.magnetic');
+
+                document.addEventListener('mousemove', e => {
+                    cursor.style.left = e.clientX + 'px';
+                    cursor.style.top = e.clientY + 'px';
+                });
+
+                magneticElements.forEach(el => {
+                    el.addEventListener('mouseenter', function(e) {
+                        cursor.classList.add('hover');
+                        this.style.transition = 'transform 0.2s ease-out';
+                    });
+
+                    el.addEventListener('mousemove', function(e) {
+                        const rect = this.getBoundingClientRect();
+                        const x = (e.clientX - rect.left - rect.width / 2) * 0.3;
+                        const y = (e.clientY - rect.top - rect.height / 2) * 0.3;
+                        this.style.transform = `translate(${x}px, ${y}px)`;
+                    });
+
+                    el.addEventListener('mouseleave', function(e) {
+                        cursor.classList.remove('hover');
+                        this.style.transform = 'translate(0, 0)';
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
